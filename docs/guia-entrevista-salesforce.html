@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Guia de Entrevista Técnica — Candidato Salesforce (BB / Unidas)</title>
+<style>
+  :root {
+    --bg: #f6f8fa;
+    --card: #ffffff;
+    --text: #1f2328;
+    --muted: #57606a;
+    --accent: #0b5cab;
+    --accent-soft: #e7f0fb;
+    --border: #d0d7de;
+    --green: #1a7f37;
+    --green-soft: #e6f4ea;
+    --amber: #9a6700;
+    --amber-soft: #fff4d6;
+    --code-bg: #f0f2f4;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+  }
+  .wrap { max-width: 900px; margin: 0 auto; padding: 32px 20px 80px; }
+  header.hero {
+    background: linear-gradient(135deg, #0b5cab, #1273d4);
+    color: #fff;
+    border-radius: 14px;
+    padding: 32px 28px;
+    margin-bottom: 28px;
+    box-shadow: 0 6px 20px rgba(11,92,171,.25);
+  }
+  header.hero h1 { margin: 0 0 8px; font-size: 1.7rem; }
+  header.hero p { margin: 0; opacity: .95; font-size: 1rem; }
+  .meta { font-size: .85rem; opacity: .85; margin-top: 14px; }
+  nav.toc {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 18px 22px;
+    margin-bottom: 28px;
+  }
+  nav.toc h2 { margin: 0 0 10px; font-size: 1rem; color: var(--accent); text-transform: uppercase; letter-spacing: .5px; }
+  nav.toc ol { margin: 0; padding-left: 20px; columns: 2; column-gap: 28px; }
+  nav.toc a { color: var(--text); text-decoration: none; }
+  nav.toc a:hover { color: var(--accent); text-decoration: underline; }
+  section.block {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 24px 26px;
+    margin-bottom: 22px;
+  }
+  section.block > h2 {
+    margin-top: 0;
+    font-size: 1.3rem;
+    color: var(--accent);
+    border-bottom: 2px solid var(--accent-soft);
+    padding-bottom: 8px;
+  }
+  h3 { font-size: 1.08rem; margin: 22px 0 6px; }
+  .q {
+    background: var(--accent-soft);
+    border-left: 4px solid var(--accent);
+    padding: 12px 16px;
+    border-radius: 0 8px 8px 0;
+    margin: 10px 0;
+    font-weight: 600;
+  }
+  .q .label { display: block; font-size: .72rem; text-transform: uppercase; letter-spacing: .6px; color: var(--accent); margin-bottom: 4px; font-weight: 700; }
+  .answer {
+    background: var(--green-soft);
+    border-left: 4px solid var(--green);
+    padding: 12px 16px;
+    border-radius: 0 8px 8px 0;
+    margin: 10px 0;
+  }
+  .answer .label { display: block; font-size: .72rem; text-transform: uppercase; letter-spacing: .6px; color: var(--green); margin-bottom: 4px; font-weight: 700; }
+  .scenario {
+    background: #f4f0fb;
+    border-left: 4px solid #6f42c1;
+    padding: 12px 16px;
+    border-radius: 0 8px 8px 0;
+    margin: 10px 0;
+  }
+  .scenario .label { display: block; font-size: .72rem; text-transform: uppercase; letter-spacing: .6px; color: #6f42c1; margin-bottom: 4px; font-weight: 700; }
+  .scenario .good { display: block; margin-top: 8px; font-style: italic; color: var(--muted); }
+  .flag {
+    background: var(--amber-soft);
+    border-left: 4px solid var(--amber);
+    padding: 10px 16px;
+    border-radius: 0 8px 8px 0;
+    margin: 10px 0;
+    color: #6b4b00;
+  }
+  ul, ol { margin: 8px 0; }
+  li { margin: 3px 0; }
+  code {
+    background: var(--code-bg);
+    padding: 1px 6px;
+    border-radius: 5px;
+    font-family: "SF Mono", Consolas, "Liberation Mono", Menlo, monospace;
+    font-size: .9em;
+  }
+  table { border-collapse: collapse; width: 100%; margin: 14px 0; font-size: .94rem; }
+  th, td { border: 1px solid var(--border); padding: 8px 12px; text-align: left; }
+  th { background: var(--accent-soft); color: var(--accent); }
+  tr:nth-child(even) td { background: #fafbfc; }
+  .note { color: var(--muted); font-size: .9rem; }
+  footer { text-align: center; color: var(--muted); font-size: .85rem; margin-top: 30px; }
+  @media (max-width: 640px) { nav.toc ol { columns: 1; } }
+  @media print {
+    body { background: #fff; }
+    section.block, nav.toc, header.hero { box-shadow: none; }
+    header.hero { background: #0b5cab !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="hero">
+    <h1>Guia de Entrevista Técnica — Candidato Salesforce</h1>
+    <p>Perfil: Desenvolvedor / Líder técnico Salesforce — projeto bancário de missão crítica (Banco do Brasil / Accenture) e Marketing Cloud (Unidas).</p>
+    <div class="meta">Legenda: <strong>Pergunta</strong> (azul) · <strong>Resposta esperada</strong> (verde) · <strong>Cenário real</strong> (roxo) · 🚩 Sinal de alerta (amarelo)</div>
+  </header>
+
+  <nav class="toc">
+    <h2>Índice</h2>
+    <ol>
+      <li><a href="#s1">Apex e Desenvolvimento Core</a></li>
+      <li><a href="#s2">Integrações (REST / SOAP)</a></li>
+      <li><a href="#s3">Lightning Web Components (LWC)</a></li>
+      <li><a href="#s4">Service Cloud / CRM</a></li>
+      <li><a href="#s5">DevOps Center e Release Management</a></li>
+      <li><a href="#s6">Marketing Cloud (Unidas)</a></li>
+      <li><a href="#s7">Liderança Técnica e Governança</a></li>
+      <li><a href="#s8">Validação de Experiência</a></li>
+      <li><a href="#s9">Matriz de Avaliação</a></li>
+      <li><a href="#s10">Dica de Condução</a></li>
+    </ol>
+  </nav>
+
+  <section class="block" id="s1">
+    <h2>1. Apex e Desenvolvimento Core</h2>
+
+    <h3>1.1 Bulkification e limites de governador</h3>
+    <div class="q"><span class="label">Pergunta</span>Em um ambiente bancário com alto volume, como você garante que seus triggers e classes Apex não estourem os governor limits? Dê exemplos concretos.</div>
+    <div class="answer"><span class="label">Resposta esperada</span>
+      <ul>
+        <li>Nunca fazer SOQL/DML dentro de loops; coletar IDs em <code>Set</code>/<code>Map</code> e consultar/atualizar em lote.</li>
+        <li>Uso de <code>Map&lt;Id, SObject&gt;</code> para evitar queries repetidas.</li>
+        <li>Limites: 100 SOQL síncronos, 150 DML, 50k registros por query, 10s/60s CPU time.</li>
+        <li>Processamento assíncrono (Queueable, Batch Apex, <code>@future</code>) para operações pesadas.</li>
+        <li>Padrão de trigger handler único por objeto com lógica delegada a classes de serviço.</li>
+      </ul>
+    </div>
+    <div class="scenario"><span class="label">Cenário real</span>Um trigger de <code>Account</code> começou a falhar em importações de 5.000 registros com erro de "Too many SOQL queries". O código fazia uma query dentro de um <code>for</code>. Como você investiga e corrige?
+      <span class="good">Boa resposta: mover a query para fora do loop, usar <code>Map</code> indexado por chave, e validar com um teste que insere 200+ registros.</span>
+    </div>
+    <div class="flag">🚩 Alerta: candidato que só fala "boas práticas" sem citar números de limites ou que nunca usou Batch/Queueable.</div>
+
+    <h3>1.2 Arquitetura de Triggers</h3>
+    <div class="q"><span class="label">Pergunta</span>Qual padrão de arquitetura de trigger você usa e por quê?</div>
+    <div class="answer"><span class="label">Resposta esperada</span>
+      <ul>
+        <li>One trigger per object + Trigger Handler (framework próprio ou Trigger Actions Framework / fflib).</li>
+        <li>Separação de responsabilidades: trigger só delega, lógica fica em handler/service.</li>
+        <li>Controle de recursão (static flags) para evitar reentrância.</li>
+        <li>Desligar automações via Custom Metadata / Custom Settings sem deploy.</li>
+      </ul>
+    </div>
+    <div class="scenario"><span class="label">Cenário real</span>Dois times mexem no mesmo objeto <code>Case</code>. Como você evita que um trigger de um squad quebre o do outro e garante ordem de execução previsível?</div>
+    <div class="flag">🚩 Alerta: múltiplos triggers no mesmo objeto sem controle de ordem.</div>
+
+    <h3>1.3 Testes e cobertura</h3>
+    <div class="q"><span class="label">Pergunta</span>Além dos 75% obrigatórios, o que torna um teste Apex realmente bom?</div>
+    <div class="answer"><span class="label">Resposta esperada</span>
+      <ul>
+        <li>Testes que validam comportamento e asserts reais, não só cobertura.</li>
+        <li>Uso de <code>@testSetup</code>, <code>Test.startTest()/stopTest()</code> (para limites e async).</li>
+        <li>Cenários positivos, negativos e bulk (200 registros).</li>
+        <li><code>HttpCalloutMock</code>, <code>Test.setMock</code> para callouts; Test Data Factory; sem <code>SeeAllData=true</code>.</li>
+      </ul>
+    </div>
+    <div class="scenario"><span class="label">Cenário real</span>Um PR tem 90% de cobertura mas nenhum <code>System.assert</code>. Você aprova? Como lida com o desenvolvedor?
+      <span class="good">Boa resposta: não aprova; explica que cobertura ≠ validação, e pede asserts significativos.</span>
+    </div>
+  </section>
+
+  <section class="block" id="s2">
+    <h2>2. Integrações (REST / SOAP)</h2>
+
+    <h3>2.1 Callouts e resiliência</h3>
+    <div class="q"><span class="label">Pergunta</span>Como você estrutura uma integração REST síncrona para um sistema bancário legado, considerando confiabilidade e timeout?</div>
+    <div class="answer"><span class="label">Resposta esperada</span>
+      <ul>
+        <li>Named Credentials para autenticação (sem hardcode de credenciais).</li>
+        <li>Tratamento de timeout (120s cumulativo, 10 callouts por transação).</li>
+        <li>Retry/idempotência; para operações críticas, filas assíncronas (Platform Events, Queueable).</li>
+        <li>Logging estruturado com correlação (trace id).</li>
+        <li>Nunca callout dentro de trigger síncrono (usar <code>@future(callout=true)</code> ou Queueable).</li>
+      </ul>
+    </div>
+    <div class="scenario"><span class="label">Cenário real</span>A API do core bancário cai intermitentemente e algumas transações duplicam. Como você garante idempotência e evita registro duplicado?
+      <span class="good">Boa resposta: chave de idempotência enviada ao backend, verificação de resposta, dead-letter queue, reprocessamento controlado.</span>
+    </div>
+    <div class="flag">🚩 Alerta: credenciais em código, callout síncrono em trigger, sem tratamento de retry.</div>
+
+    <h3>2.2 REST vs SOAP e segurança</h3>
+    <div class="q"><span class="label">Pergunta</span>Quando faz sentido usar SOAP em vez de REST, e como você protege os dados em trânsito em ambiente regulado?</div>
+    <div class="answer"><span class="label">Resposta esperada</span>
+      <ul>
+        <li>SOAP: contratos WSDL rígidos, sistemas legados, transações formais.</li>
+        <li>REST: mais leve, JSON, integrações modernas.</li>
+        <li>Segurança: TLS, mTLS quando exigido, Named Credentials, OAuth 2.0, Shield Platform Encryption.</li>
+        <li>Conformidade com LGPD e políticas do banco (mascaramento, auditoria).</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="block" id="s3">
+    <h2>3. Lightning Web Components (LWC)</h2>
+
+    <h3>3.1 Comunicação e performance</h3>
+    <div class="q"><span class="label">Pergunta</span>Como componentes LWC se comunicam entre si e com Apex, e como você otimiza performance?</div>
+    <div class="answer"><span class="label">Resposta esperada</span>
+      <ul>
+        <li>Pai→filho via <code>@api</code>; filho→pai via <code>CustomEvent</code>.</li>
+        <li>Irmãos via Lightning Message Service (LMS) ou pub/sub.</li>
+        <li>Apex via <code>@wire</code> (reativo, cacheável) vs. chamada imperativa.</li>
+        <li><code>@AuraEnabled(cacheable=true)</code> para leituras; evitar re-renders.</li>
+        <li>Lazy loading, paginação server-side para grandes volumes.</li>
+      </ul>
+    </div>
+    <div class="scenario"><span class="label">Cenário real</span>Uma tela com uma lista de 10.000 Cases trava o navegador. Como você resolve?
+      <span class="good">Boa resposta: paginação/lazy load no servidor, <code>lightning-datatable</code> com infinite scroll, não carregar tudo de uma vez.</span>
+    </div>
+    <div class="flag">🚩 Alerta: candidato que não distingue <code>@wire</code> de chamada imperativa, ou que carrega tudo no client.</div>
+
+    <h3>3.2 Segurança no LWC</h3>
+    <div class="q"><span class="label">Pergunta</span>Como você garante que o LWC respeite as permissões do usuário (FLS/CRUD)?</div>
+    <div class="answer"><span class="label">Resposta esperada</span>
+      <ul>
+        <li>Segurança no Apex (<code>WITH SECURITY_ENFORCED</code>, <code>Security.stripInaccessible</code>, <code>isAccessible()</code>).</li>
+        <li>Não confiar apenas na UI; enforcement no servidor.</li>
+        <li>Contexto bancário: princípio do menor privilégio, perfis e permission sets.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="block" id="s4">
+    <h2>4. Service Cloud / CRM</h2>
+    <div class="q"><span class="label">Pergunta</span>Quais automações nativas vs. código você usa para operações de Service Cloud, e como decide entre Flow e Apex?</div>
+    <div class="answer"><span class="label">Resposta esperada</span>
+      <ul>
+        <li>Nativo primeiro: Omni-Channel, Case assignment/escalation rules, Entitlements/Milestones, Macros.</li>
+        <li>Flow para automação declarativa; Apex quando há lógica complexa, bulk pesado ou integração.</li>
+        <li>Clicks-not-code quando possível (manutenção, governança).</li>
+      </ul>
+    </div>
+    <div class="scenario"><span class="label">Cenário real</span>O negócio quer rotear casos por SLA, prioridade e skill do agente. Você faz com Omni-Channel + Flow ou Apex? Justifique.</div>
+  </section>
+
+  <section class="block" id="s5">
+    <h2>5. DevOps Center e Release Management</h2>
+    <p class="note">Diferencial forte do perfil. Aprofunde bastante aqui se a vaga envolve release/governança.</p>
+
+    <h3>5.1 Pipeline e governança</h3>
+    <div class="q"><span class="label">Pergunta</span>Descreva seu fluxo de release no DevOps Center. Como você garante rastreabilidade e controle de mudanças entre ambientes?</div>
+    <div class="answer"><span class="label">Resposta esperada</span>
+      <ul>
+        <li>Work items vinculados a user stories, controle do que entra em cada ambiente.</li>
+        <li>Pipeline source → integration → UAT → produção, com gates de aprovação.</li>
+        <li>Rastreabilidade: cada mudança ligada a um work item e a um release.</li>
+        <li>Backup/rollback plan, janela de deploy, validação pós-deploy.</li>
+        <li>Diferença entre DevOps Center e Gearset/Copado (limitações).</li>
+      </ul>
+    </div>
+    <div class="scenario"><span class="label">Cenário real</span>Um deploy para produção falhou no meio por falha de teste de uma classe que não era do seu squad. Como você diagnostica, comunica e recupera o ambiente?
+      <span class="good">Boa resposta: validação com Run Specified/Local Tests antes; análise do log de deploy; comunicação com o squad dono da classe; rollback ou hotfix controlado; retrospectiva de processo.</span>
+    </div>
+    <div class="flag">🚩 Alerta: candidato que "faz deploy direto" sem gates, ou não sabe explicar rastreabilidade.</div>
+
+    <h3>5.2 Conflitos de merge e dependências</h3>
+    <div class="q"><span class="label">Pergunta</span>Como você lida com conflitos entre múltiplos squads (97 devs) alterando os mesmos metadados?</div>
+    <div class="answer"><span class="label">Resposta esperada</span>
+      <ul>
+        <li>Estratégia de branching, divisão de ownership por domínio/objeto.</li>
+        <li>Comunicação entre líderes, calendário de releases.</li>
+        <li>Custom Metadata para reduzir conflitos de deploy.</li>
+        <li>Resolução de conflitos no DevOps Center, revisão de componentes compartilhados.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="block" id="s6">
+    <h2>6. Marketing Cloud (Unidas)</h2>
+
+    <h3>6.1 Journey Builder e omnichannel</h3>
+    <div class="q"><span class="label">Pergunta</span>Explique como você estrutura uma jornada omnichannel (e-mail + WhatsApp) no Journey Builder com segmentação.</div>
+    <div class="answer"><span class="label">Resposta esperada</span>
+      <ul>
+        <li>Entry source (Data Extension, API event, Salesforce Data).</li>
+        <li>Decision splits, wait, engagement splits.</li>
+        <li>Integração WhatsApp via provedor/parceiro MC ou API.</li>
+        <li>Automation Studio para preparação de dados (SQL em Data Extensions, imports).</li>
+        <li>Deliverability, opt-out, LGPD.</li>
+      </ul>
+    </div>
+    <div class="scenario"><span class="label">Cenário real</span>Uma campanha de WhatsApp precisa disparar só para clientes que não abriram o e-mail em 48h e que ainda têm contrato ativo. Como você monta isso?
+      <span class="good">Boa resposta: engagement split por abertura, wait de 48h, decision split com dado de contrato (via Data Extension sincronizada do Core), filtro de opt-in.</span>
+    </div>
+
+    <h3>6.2 Integração MC ↔ Salesforce Core</h3>
+    <div class="q"><span class="label">Pergunta</span>Como os dados fluem entre o Salesforce Core e o Marketing Cloud? Quais os cuidados?</div>
+    <div class="answer"><span class="label">Resposta esperada</span>
+      <ul>
+        <li>Marketing Cloud Connect, Synchronized Data Extensions.</li>
+        <li>SQL em Automation Studio para transformar/segmentar.</li>
+        <li>Cuidados: latência de sync, consentimento/LGPD, qualidade de dado, deduplicação.</li>
+      </ul>
+    </div>
+    <div class="flag">🚩 Alerta: candidato que trata MC e Core como se fossem o mesmo produto (são plataformas distintas).</div>
+  </section>
+
+  <section class="block" id="s7">
+    <h2>7. Liderança Técnica e Governança</h2>
+    <p class="note">Perfil atua como 1 dos 4 líderes de uma frente de 97 devs. Avalie liderança técnica, não só código.</p>
+    <ol>
+      <li><strong>"Como você resolve um impedimento técnico que está travando vários squads ao mesmo tempo?"</strong><br><span class="note">Espera-se: priorização, escalonamento, solução paliativa + definitiva, comunicação transparente.</span></li>
+      <li><strong>"Um desenvolvedor sênior discorda da sua decisão de arquitetura. Como você conduz?"</strong><br><span class="note">Espera-se: abertura técnica, decisão por trade-offs, não por hierarquia.</span></li>
+      <li><strong>"Como você garante padronização de código e qualidade com 97 devs?"</strong><br><span class="note">Espera-se: code review, guidelines, static analysis (PMD/CodeScan), templates, pairing, definition of done.</span></li>
+      <li><strong>"Como você apoia o PO na estruturação de histórias? Dê um exemplo de uma história mal escrita que você refinou."</strong><br><span class="note">Espera-se: critérios de aceite claros, quebra técnica, viabilidade, estimativa.</span></li>
+      <li><strong>"Descreva uma situação em que equilibrou prazo vs. dívida técnica em ambiente bancário regulado."</strong></li>
+    </ol>
+    <div class="flag">🚩 Alerta geral de liderança: respostas genéricas sem exemplos concretos, foco só em código e nenhum em pessoas/processo.</div>
+  </section>
+
+  <section class="block" id="s8">
+    <h2>8. Validação de Experiência (anti-"currículo inflado")</h2>
+    <ul>
+      <li>"Me conte o bug mais difícil que você resolveu no projeto do BB. O que era, como investigou, como corrigiu?"</li>
+      <li>"Qual foi a decisão de arquitetura mais importante que você tomou e que hoje faria diferente?"</li>
+      <li>"Quantos ambientes vocês têm no pipeline e qual a frequência de release?"</li>
+      <li>"Qual o tamanho médio de uma release e como vocês mediram o risco dela?"</li>
+      <li>"No Marketing Cloud, qual foi a jornada mais complexa que você montou e qual métrica ela melhorou?"</li>
+    </ul>
+    <p class="note">Difíceis de responder bem sem ter vivido o dia a dia — ótimas para separar experiência real de teoria.</p>
+  </section>
+
+  <section class="block" id="s9">
+    <h2>9. Matriz Rápida de Avaliação</h2>
+    <table>
+      <thead>
+        <tr><th>Área</th><th>Peso sugerido</th><th>O que observar</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Apex / fundamentos</td><td>Alto</td><td>Limites, bulkification, async, testes</td></tr>
+        <tr><td>Integrações</td><td>Alto</td><td>Resiliência, segurança, idempotência</td></tr>
+        <tr><td>LWC</td><td>Médio</td><td>Comunicação, performance, segurança</td></tr>
+        <tr><td>Service Cloud</td><td>Médio</td><td>Declarativo vs. código</td></tr>
+        <tr><td>DevOps / Release</td><td>Alto</td><td>Rastreabilidade, gates, recuperação</td></tr>
+        <tr><td>Marketing Cloud</td><td>Médio/Alto*</td><td>Journey, integração Core, LGPD</td></tr>
+        <tr><td>Liderança</td><td>Alto</td><td>Exemplos concretos, pessoas e processo</td></tr>
+      </tbody>
+    </table>
+    <p class="note">*Ajuste conforme a vaga ser mais dev Core ou mais Marketing.</p>
+  </section>
+
+  <section class="block" id="s10">
+    <h2>10. Dica de Condução</h2>
+    <p>Comece amplo (deixe o candidato contar o projeto), depois mergulhe com os cenários reais. Use a técnica do "e se" para pressionar: mude variáveis do cenário em tempo real e veja se o raciocínio se sustenta. Quem viveu responde fluido; quem decorou trava quando o cenário muda.</p>
+  </section>
+
+  <footer>
+    Guia de entrevista técnica Salesforce · gerado para uso interno de recrutamento
+  </footer>
+
+</div>
+</body>
+</html>
